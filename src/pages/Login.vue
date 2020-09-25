@@ -6,9 +6,18 @@
         <img src="../assets/logo.png" alt="iorder logo" />
         <h1>Acesse nosso portal</h1>
         <p>Gerencie seu restaurante de forma fácil e rápida</p>
-        <form>
-          <input type="text" placeholder="Digite seu email" />
-          <input type="password" placeholder="Digite sua senha" />
+        <form @submit="submit">
+          <input
+            :class="{ fieldError: erros.email }"
+            v-model="email"
+            type="text" 
+            placeholder="Digite seu email" 
+           />
+          <input 
+          :class="{ fieldError: erros.senha }"
+          v-model="senha"
+          type="password" 
+          placeholder="Digite sua senha" />
           <button>Entrar</button>
         </form>
       </div>
@@ -17,7 +26,37 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios"
+export default {
+  data() {
+    return {
+      email: "",
+      senha: "",
+      erros: {
+        email: false,
+        senha: false
+      }
+    }
+  },
+  methods: {
+    async submit(e) {
+      e.preventDefault();
+      const { data } = await axios.get("http://localhost:3000/users")
+        // params: {
+        //   email: this.email,
+        //   senha: this.senha
+        // }
+      // )
+        console.log(data)
+
+      // if(data.length > 0) {
+      //   this.$router.push({name: "dashboard"})
+      // }else {
+      //   alert("Nenhum usuário encontrado")
+      // }
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -82,7 +121,8 @@ export default {};
 }
 
 .login form input:focus {
-  outline: 1px solid var(--red-default);
+  border: 1px solid var(--red-default);
+  outline: none;
   border-radius: 5px;
   transition: .4s;
 }

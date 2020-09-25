@@ -5,6 +5,12 @@
       "email": "gabrielcaianaguedes@gmail.com",
       "password": "123",
       "id": 1
+    },
+    {
+      "name": "Allan feitorsa",
+      "email": "allan@gmail.com",
+      "password": "123",
+      "id": 2
     }
   ],
   "posts": []
