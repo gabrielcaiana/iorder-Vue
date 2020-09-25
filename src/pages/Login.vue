@@ -1,15 +1,106 @@
 <template>
-  <div>
-    <h1>Login</h1>
+  <div class="container">
+    <div class="content image-bg"></div>
+    <div class="content">
+      <div class="login">
+        <img src="../assets/logo.png" alt="iorder logo" />
+        <h1>Acesse nosso portal</h1>
+        <p>Gerencie seu restaurante de forma fácil e rápida</p>
+        <form>
+          <input type="text" placeholder="Digite seu email" />
+          <input type="password" placeholder="Digite sua senha" />
+          <button>Entrar</button>
+        </form>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  
-}
+export default {};
 </script>
 
 <style scoped>
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-bg {
+  background-size: cover;
+  background-image: url(../assets/bg.png);
+  background-repeat: no-repeat;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.login img {
+  width: 130px;
+}
+
+.login h1 {
+  font-size: 36px;
+  font-weight: 600;
+  margin: 32px 0 8px 0;
+  color: var(--black);
+}
+
+.login p {
+  font-size: 18px;
+  color: var(--black);
+  font-weight: 300;
+}
+
+.login form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 32px 0;
+}
+
+.login form input {
+  width: 420px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid var(--grayLight);
+  margin: 16px 0;
+}
+
+.login form input:focus {
+  outline: 1px solid var(--red-default);
+  border-radius: 5px;
+  transition: .4s;
+}
+
+.login button {
+  width: 462px;
+  height: 48px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--red-default);
+  color: white;
+  font-size: 16px;
+  transition: .5s;
+}
+
+.login button:hover {
+  background-color: var(--red-hover);
+}
 
 </style>

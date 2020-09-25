@@ -1,0 +1,14 @@
+* {
+ padding: 0;
+ margin: 0;
+ font-family: 'Poppins', sans-serif;
+}
+
+:root {
+ --red-default: #F70F0B;
+ --red-hover: #D00000;
+ --black: #212121;
+ --grayDark: #424242;
+ --gray:  #616161;
+ --grayLight: #E0E0E0; 
+}
