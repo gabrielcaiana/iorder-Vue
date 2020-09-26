@@ -10,14 +10,15 @@
           <input
             :class="{ fieldError: erros.email }"
             v-model="email"
-            type="text" 
-            placeholder="Digite seu email" 
-           />
-          <input 
-          :class="{ fieldError: erros.senha }"
-          v-model="senha"
-          type="password" 
-          placeholder="Digite sua senha" />
+            type="text"
+            placeholder="Digite seu email"
+          />
+          <input
+            :class="{ fieldError: erros.senha }"
+            v-model="senha"
+            type="password"
+            placeholder="Digite sua senha"
+          />
           <button>Entrar</button>
         </form>
       </div>
@@ -26,7 +27,7 @@
 </template>
 
 <script>
-import axios from "axios"
+import axios from "axios";
 export default {
   data() {
     return {
@@ -34,28 +35,40 @@ export default {
       senha: "",
       erros: {
         email: false,
-        senha: false
-      }
-    }
+        senha: false,
+      },
+    };
   },
   methods: {
     async submit(e) {
       e.preventDefault();
-      const { data } = await axios.get("http://localhost:3000/users")
-        // params: {
-        //   email: this.email,
-        //   senha: this.senha
-        // }
-      // )
-        console.log(data)
+      const { data } = await axios.get("http://localhost:3000/users", {
+        params: {
+          email: this.email,
+          senha: this.senha,
+        },
+      });
 
-      // if(data.length > 0) {
-      //   this.$router.push({name: "dashboard"})
-      // }else {
-      //   alert("Nenhum usuário encontrado")
-      // }
+      if(data.length > 0) {
+        this.$router.push({name: "dashboard"})
+      }else {
+        alert("Nenhum usuário encontrado")
+      }
+    },
+    checkFields() {
+      if(this.email == "") {
+        this.erros.email = true
+      }else {
+        this.erros.email = false
+      }
+
+      if(this.senha == "") {
+        this.erros.senha = true
+      }else {
+        this.erros.senha = false
+      }
     }
-  }
+  },
 };
 </script>
 
@@ -117,14 +130,14 @@ export default {
   padding: 20px;
   border-radius: 5px;
   border: 1px solid var(--grayLight);
-  margin: 16px 0;
+  margin: 8px 0;
 }
 
 .login form input:focus {
   border: 1px solid var(--red-default);
   outline: none;
   border-radius: 5px;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .login button {
@@ -136,11 +149,11 @@ export default {
   background-color: var(--red-default);
   color: white;
   font-size: 16px;
-  transition: .5s;
+  transition: 0.5s;
+  margin-top: 32px;
 }
 
 .login button:hover {
   background-color: var(--red-hover);
 }
-
 </style>
