@@ -12,12 +12,14 @@
             v-model="email"
             type="text"
             placeholder="Digite seu email"
+            @blur="checkFields"
           />
           <input
             :class="{ fieldError: erros.senha }"
             v-model="senha"
             type="password"
             placeholder="Digite sua senha"
+            @blur="checkFields"
           />
           <button>Entrar</button>
         </form>
@@ -45,7 +47,7 @@ export default {
       const { data } = await axios.get("http://localhost:3000/users", {
         params: {
           email: this.email,
-          senha: this.senha,
+          password: this.senha,
         },
       });
 
@@ -56,16 +58,15 @@ export default {
       }
     },
     checkFields() {
-      if(this.email == "") {
-        this.erros.email = true
-      }else {
-        this.erros.email = false
+       if (this.email === "") {
+        this.erros.email = true;
+      } else {
+        this.erros.email = false;
       }
-
-      if(this.senha == "") {
-        this.erros.senha = true
-      }else {
-        this.erros.senha = false
+      if (this.senha === "") {
+        this.erros.senha = true;
+      } else {
+        this.erros.senha = false;
       }
     }
   },
