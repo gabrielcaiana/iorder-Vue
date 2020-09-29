@@ -1,12 +1,6 @@
 {
   "users": [
     {
-      "name": "Gabriel Caiana",
-      "email": "gabrielcaianaguedes@gmail.com",
-      "password": "123",
-      "id": 1
-    },
-    {
       "name": "Allan feitorsa",
       "email": "allan@gmail.com",
       "password": "123",
@@ -17,6 +11,12 @@
       "email": "gisely@gmail.com",
       "password": "123",
       "id": 2
+    },
+    {
+      "name": "Gabriel Caiana",
+      "email": "gabrielcaianaguedes@gmail.com",
+      "password": "123",
+      "id": 3
     }
   ],
   "posts": []

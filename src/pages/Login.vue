@@ -157,4 +157,8 @@ export default {
 .login button:hover {
   background-color: var(--red-hover);
 }
+
+.fieldError {
+  border: 1px solid red;
+}
 </style>
